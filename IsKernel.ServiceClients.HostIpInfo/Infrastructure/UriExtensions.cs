@@ -19,7 +19,8 @@ namespace IsKernel.ServiceClients.HostIpInfo.Infrastructure
 
         public static Uri Append(this Uri uri, params string[] paths)
         {
-            var newUri = new Uri(paths.Aggregate(uri.AbsoluteUri, (current, path) => string.Format("{0}/{1}", current.TrimEnd('/'), path.TrimStart('/'))));
+            var newUri = new Uri(paths.Aggregate(uri.AbsoluteUri, (current, path) 
+        	                                     => string.Format("{0}/{1}", current.TrimEnd('/'), path.TrimStart('/'))));
             return newUri;
         }
 

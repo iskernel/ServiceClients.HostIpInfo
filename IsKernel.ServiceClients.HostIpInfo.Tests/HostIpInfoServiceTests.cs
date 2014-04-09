@@ -31,14 +31,15 @@ namespace IsKernel.ServiceClients.HostIpInfo.Tests
         {
             var ip = IPAddress.Parse("12.215.42.19");
             var countryFlagUrl = _hostIpInfoServiceClient.GetUserCountryFlagUrl(ip);
-            bool condition = (string.IsNullOrWhiteSpace(countryFlagUrl) == false) && (new Uri(countryFlagUrl).IsUrl() == true);
+            bool condition = (string.IsNullOrWhiteSpace(countryFlagUrl) == false) 
+            				 && (new Uri(countryFlagUrl).IsUrl() == true);
             Assert.IsTrue(condition);
         }
         
         [Test]
         public void GetUserCountryFlag_SpecifiedIp_InformationIsReturned()
         {
-        	var ip = IPAddress.Parse("12.215.42.19");
+			var ip = IPAddress.Parse("12.215.42.19");
             var countryFlagUrl = _hostIpInfoServiceClient.GetUserCountryFlagAsync(ip).Result;
             Assert.IsNotNull(countryFlagUrl);
         }

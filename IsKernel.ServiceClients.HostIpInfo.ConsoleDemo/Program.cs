@@ -39,7 +39,7 @@ namespace IsKernel.ServiceClients.HostIpInfo.ConsoleDemo
 			
 			SaveGif(countryFlagBytes, "asyncFlag.gif");
 			
-	        Console.WriteLine("Async usage done");
+			Console.WriteLine("Async usage done");
 		}
 		
 		public static void ApiUsage()
@@ -55,7 +55,7 @@ namespace IsKernel.ServiceClients.HostIpInfo.ConsoleDemo
 
 			SaveGif(countryFlagBytes, "normalFlag.gif");
 			
-	        Console.WriteLine("Normal usage done");			
+			Console.WriteLine("Normal usage done");
 		}
 		
 		public static void Main(string[] args)
