@@ -3,6 +3,10 @@ ServiceClients.HostIpInfo
 
 A simple C# wrapper for the IP lookup and geotargeting service present at http://www.hostip.info/
 
+The service allows the user to:
+ - Retrieve the city, country, country code and geolocation coordinates (latitude, longitude) of an IP
+ - Retrieve the flag of the country from where the IP comes.
+
 Version
 ----
 
