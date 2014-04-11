@@ -1,0 +1,21 @@
+﻿@model IsKernel.ServiceClients.HostIpInfo.Contracts.LocationInfo
+
+@{
+	ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+<p>Example MVC project for using the <a href="http://www.hostip.info/">HostIpInfo</a> service.</p>
+<p>Information about @Model.Ip</p>
+<div>
+	<img id="my-image" src="@Url.Action("GetCountryFlag", "Home")" style="vertical-align:middle;"/>
+	<a href="@Html.Action("GetCountryUrl", "Home")">@Html.Action("GetCountryUrl", "Home")</a>
+</div>
+<table>
+		<tr><td>Country</td><td>@Model.CountryName</td></tr>
+		<tr><td>City</td><td>@Model.Name</td></tr>
+		<tr><td>Country Code</td><td>@Model.CountryCode</td></tr>
+		<tr><td>Latitude</td><td>@Model.Latitude</td></tr>
+		<tr><td>Longitude</td><td>@Model.Longitude</td></tr>
+	</tr>
+</table>
