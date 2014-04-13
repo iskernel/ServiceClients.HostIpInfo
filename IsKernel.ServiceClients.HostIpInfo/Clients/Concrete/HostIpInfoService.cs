@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
+using Newtonsoft.Json;
+using RestSharp;
 using IsKernel.ServiceClients.HostIpInfo.Clients.Abstract;
 using IsKernel.ServiceClients.HostIpInfo.Contracts;
 using IsKernel.ServiceClients.HostIpInfo.Exceptions;
 using IsKernel.ServiceClients.HostIpInfo.Infrastructure;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using RestSharp;
 
 namespace IsKernel.ServiceClients.HostIpInfo.Clients.Concrete
 {
@@ -22,7 +17,7 @@ namespace IsKernel.ServiceClients.HostIpInfo.Clients.Concrete
         private const string BASE_URL = "http://api.hostip.info/";
         private const string GET_INFO_URI = "get_json.php";
         private const string GET_FLAG = "flag.php";
-        private IRestClient _restClient;
+        private readonly IRestClient _restClient;
 
         public HostIpInfoService()
         {
@@ -76,11 +71,7 @@ namespace IsKernel.ServiceClients.HostIpInfo.Clients.Concrete
     	        var taskCompletionSource = new TaskCompletionSource<byte[]>();
         		var request = new RestRequest(GET_FLAG, Method.GET);
                 request.AddParameter("ip", ipString);
-        		_restClient.ExecuteAsync(request, (response) =>
-                                         {
-                                         	
-                                         	taskCompletionSource.SetResult(response.RawBytes);                                         	                                  	
-                                         });
+        		_restClient.ExecuteAsync(request, (response) => taskCompletionSource.SetResult(response.RawBytes));
         		return taskCompletionSource.Task;
         	}
         	catch(Exception exception)

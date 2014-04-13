@@ -19,8 +19,10 @@ namespace IsKernel.ServiceClients.HostIpInfo.ConsoleDemo
 		{
 			using(var memoryStream = new MemoryStream(bytes, 0, bytes.Length))
 			{
-				var img = Bitmap.FromStream(memoryStream);
-				img.Save(path, ImageFormat.Gif);
+				using (var img = Image.FromStream(memoryStream)) 
+				{
+					img.Save(path, ImageFormat.Gif);
+				}
 			}
 		}
 		
@@ -28,7 +30,7 @@ namespace IsKernel.ServiceClients.HostIpInfo.ConsoleDemo
 		{
 			IHostIpInfoService service = new HostIpInfoService();
 		
-			var ip = IPAddress.Parse("22.231.113.64");
+			var ip = IPAddress.Parse("216.27.61.137");
 			
 			var locationTask = service.GetIpLocationAsync(ip);
 			var countryFlagTask = service.GetUserCountryFlagAsync(ip);
@@ -52,7 +54,7 @@ namespace IsKernel.ServiceClients.HostIpInfo.ConsoleDemo
 			LocationInfo location = service.GetIpLocationAsync(ip).Result;
 			byte[] countryFlagBytes = service.GetUserCountryFlagAsync(ip).Result;
 			string countryFlagUrl = service.GetUserCountryFlagUrl(ip);		
-
+			
 			SaveGif(countryFlagBytes, "normalFlag.gif");
 			
 			Console.WriteLine("Normal usage done");

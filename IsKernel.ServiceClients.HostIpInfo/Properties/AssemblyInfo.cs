@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IsKernel.ServiceClients.HostIpInfo")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Client API for the HostIpInfo service.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("IsKernel")]
 [assembly: AssemblyProduct("IsKernel.ServiceClients.HostIpInfo")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
